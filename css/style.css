@@ -7,15 +7,16 @@
 .body{
     background: url("../img/bg.jpg");
     min-height: 100vh;
-    background-size: 100vw 100vh;
+    background-size: 90vw 90vh;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+
 #board{
-    background: linear-gradient(rgb(176, 211, 176), rgb(192, 192, 154));
+    background: linear-gradient(rgb(174, 201, 176), rgb(190, 192, 154));
     width: 90vmin;
     height: 90vmin;
     border: 2px solid black;
@@ -47,7 +48,7 @@
 #scoreId{
     position: absolute;
     top: 9px;
-    right: 200px;
+    right: 201px;
     font-size: 39px;
     font-weight: bold;
     font-family: 'New Tegomin', serif;
