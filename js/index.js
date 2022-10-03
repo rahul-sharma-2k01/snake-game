@@ -1,4 +1,3 @@
-//Game Constants and Variables
 let direction={x:0 , y:0};
 const foodSound=new Audio("../music/food.mp3");
 const gameOverSound=new Audio("../music/gameover.mp3");
@@ -7,14 +6,14 @@ const musicSound=new Audio("../music/music.mp3");
 let speed=5;
 let lastPaintTime=0;
 
-// let board=document.querySelector("#board");
+
 let snakeArr=[
     {x:13, y:15}
 ]
 let food={x:6, y:7};
 let score=0;
 
-//Game Functions
+
 function main(ctime){
     window.requestAnimationFrame(main);
     if((ctime-lastPaintTime)/1000 < 1/speed){
@@ -35,7 +34,6 @@ function isCollide(snake){
 }
 
 function gameEngine(){
-    //Part 1: Updating Snake Array and food
     if(isCollide(snakeArr)){
         gameOverSound.play();
         musicSound.pause();
@@ -49,7 +47,6 @@ function gameEngine(){
         window.requestAnimationFrame(main);
     }
 
-    //If snake eaten the food, increment score and regenerate food
     if(snakeArr[0].y===food.y && snakeArr[0].x===food.x){
         foodSound.play();
         score++;
@@ -74,7 +71,6 @@ function gameEngine(){
         food={x:Math.round(a+(b-a)*Math.random()), y:Math.round(a+(b-a)*Math.random())};
     }
 
-     //Moving the snake
     for (let i=snakeArr.length-2;i>=0; i--){
         let temp = snakeArr[i];  
         snakeArr[i+1]={...snakeArr[i]};    
@@ -86,7 +82,6 @@ function gameEngine(){
     if(snakeArr[0].y==0) snakeArr[0].y=18;
     else if(snakeArr[0].y==19) snakeArr[0].y=1;
 
-    //Part 2: Display the Snake and food
     board.innerHTML="";
     snakeArr.forEach((e, index)=>{
         snakeElement=document.createElement('div');
@@ -101,7 +96,6 @@ function gameEngine(){
         board.appendChild(snakeElement);
     })
 
-    //Display Food
     foodElement=document.createElement('div');
     foodElement.style.gridRowStart=food.y;
     foodElement.style.gridColumnStart=food.x;
@@ -109,7 +103,6 @@ function gameEngine(){
     board.appendChild(foodElement);
 }
 
-//Main Logic Starts here
 let highscore=localStorage.getItem("highscore");
 console.log(highscore);
 highscoreval=JSON.parse(highscore);
@@ -122,33 +115,29 @@ else{
 }
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e=>{
-    direction={x: 0, y:1} //Start the Game
+    direction={x: 0, y:1}
     moveSound.play();
     switch (e.key){
         case "ArrowUp":
             musicSound.play();
-            // console.log("ArrowUp");
             direction.x=0;
             direction.y=-1;
             break;
 
         case "ArrowDown":
             musicSound.play();
-            // console.log("ArrowDown");
             direction.x=0;
             direction.y=1;
             break;
 
         case "ArrowLeft":
             musicSound.play();
-            // console.log("ArrowLeft");
             direction.x=-1;
             direction.y=0;
             break;
 
         case "ArrowRight":
             musicSound.play();
-            // console.log("ArrowRight");
             direction.x=1;
             direction.y=0;
             break;
