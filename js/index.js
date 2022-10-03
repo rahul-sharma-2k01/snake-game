@@ -8,9 +8,9 @@ let lastPaintTime=0;
 
 
 let snakeArr=[
-    {x:13, y:15}
+    {x:14, y:15}
 ]
-let food={x:6, y:7};
+let food={x:2, y:4};
 let score=0;
 
 
@@ -41,7 +41,6 @@ function gameEngine(){
         alert("Game Over. Press any key to play again!");
         snakeArr.length=0;
         snakeArr.push({x:13, y:15});
-        // musicSound.play();
         score=0;
         scoreId.innerHTML="Score : "+score;
         window.requestAnimationFrame(main);
@@ -51,7 +50,6 @@ function gameEngine(){
         foodSound.play();
         score++;
         if(score>highscoreval){
-            // console.log("hj");
             highscoreval=score;
             localStorage.setItem("highscore", JSON.stringify(highscoreval));
             highScoreId.innerHTML="HiScore : "+highscoreval;

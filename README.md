@@ -1,3 +1,3 @@
 # snake-game
 
-A simple web based snake game
+A web based snake game inclusing music.
