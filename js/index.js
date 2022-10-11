@@ -3,7 +3,7 @@ const foodSound=new Audio("../music/food.mp3");
 const gameOverSound=new Audio("../music/gameover.mp3");
 const moveSound=new Audio("../music/move.mp3");
 const musicSound=new Audio("../music/music.mp3");
-let speed=5;
+let speed=10;
 let lastPaintTime=0;
 
 
@@ -24,7 +24,6 @@ function main(ctime){
 }
 
 function isCollide(snake){
-    //If snake bump into yourself
     for(let i=1;i<snake.length;i++){
         if(snake[i].x===snake[0].x && snake[i].y===snake[0].y){
             return true;
@@ -52,7 +51,7 @@ function gameEngine(){
         if(score>highscoreval){
             highscoreval=score;
             localStorage.setItem("highscore", JSON.stringify(highscoreval));
-            highScoreId.innerHTML="HiScore : "+highscoreval;
+            highScoreId.innerHTML="HighScore : "+highscoreval;
         }
         scoreId.innerHTML="Score : "+score;
         let temp1=snakeArr[0].x+direction.x;
@@ -109,7 +108,7 @@ if(highscore==null){
     localStorage.setItem("highscore",JSON.stringify(highscoreval));
 }
 else{
-    highScoreId.innerHTML="HiScore : "+highscoreval;
+    highScoreId.innerHTML="HighScore : "+highscoreval;
 }
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e=>{
@@ -119,24 +118,24 @@ window.addEventListener('keydown', e=>{
         case "ArrowUp":
             musicSound.play();
             direction.x=0;
-            direction.y=-1;
+            direction.y=-2;
             break;
 
         case "ArrowDown":
             musicSound.play();
             direction.x=0;
-            direction.y=1;
+            direction.y=2;
             break;
 
         case "ArrowLeft":
             musicSound.play();
-            direction.x=-1;
+            direction.x=-2;
             direction.y=0;
             break;
 
         case "ArrowRight":
             musicSound.play();
-            direction.x=1;
+            direction.x=2;
             direction.y=0;
             break;
 
