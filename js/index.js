@@ -3,14 +3,14 @@ const foodSound=new Audio("../music/food.mp3");
 const gameOverSound=new Audio("../music/gameover.mp3");
 const moveSound=new Audio("../music/move.mp3");
 const musicSound=new Audio("../music/music.mp3");
-let speed=10;
+let speed=20;
 let lastPaintTime=0;
 
 
 let snakeArr=[
-    {x:14, y:15}
+    {x:19, y:15}
 ]
-let food={x:2, y:4};
+let food={x:9, y:7};
 let score=0;
 
 

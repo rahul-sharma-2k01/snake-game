@@ -11,9 +11,9 @@
 
 
 #board{
-    background: linear-gradient(rgb(174, 201, 176), rgb(190, 192, 154));
-    width: 90vmin;
-    height: 90vmin;
+    background: linear-gradient(rgb(174, 201, 176), rgb(190, 190, 150));
+    width: 95vmin;
+    height: 95vmin;
     border: 2px solid black;
     display: grid;
     grid-template-rows: repeat(18,1fr);
